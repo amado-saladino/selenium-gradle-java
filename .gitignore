@@ -1,0 +1,13 @@
+allure-report/*
+allure-results/*
+Screenshots/*
+/.idea/
+/.settings/
+/.gradle/
+/gradle/
+/test-output/
+/build/
+/target/
+.classpath
+.project
+!.gitkeep
