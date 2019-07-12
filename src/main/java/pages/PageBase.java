@@ -75,14 +75,12 @@ public class PageBase {
 	}
 	
 	
-	protected void selectComboItemByText(WebElement comboElement, String textValue){
-		
+	protected void selectComboItemByText(WebElement comboElement, String textValue){		
 		new Select(comboElement).selectByVisibleText(textValue);		
 	}
 	
 	
-	public WebElement getComboSelectedItem(WebElement comboBox) {
-		
+	public WebElement getComboSelectedItem(WebElement comboBox) {		
 		return new Select(comboBox).getFirstSelectedOption();
 	}
 	
