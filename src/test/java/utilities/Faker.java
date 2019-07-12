@@ -7,8 +7,7 @@ import org.joda.time.LocalDate;
 import io.codearte.jfairy.Fairy;
 import io.codearte.jfairy.producer.person.PersonProperties;
 
-public class Faker {
-	
+public class Faker {	
 	Fairy fairy;	
 	LocalDate localDate;
 	String day, month, year;
@@ -17,15 +16,7 @@ public class Faker {
 		fairy= Fairy.create();
 	}
 	
-	/*public static void main(String[] args) {
-		
-		Faker faker = new Faker();
-		faker.generateLocalDate();
-	
-	}*/
-	
-	public String getFullName(){
-		
+	public String getFullName(){		
 		return fairy.person(PersonProperties.male()).getFullName();
 	}
 	
@@ -41,7 +32,6 @@ public class Faker {
 		year = String.valueOf( localDate.getYear() );
 	}
 	
-	
 	 private String getMonthName(int monthNumber) {
 	        String month = "wrong";
 	        DateFormatSymbols monthsNames = new DateFormatSymbols();
@@ -53,13 +43,11 @@ public class Faker {
 	    }
 	
 	
-	public String getPassword(){
-		
+	public String getPassword(){		
 		return fairy.person(PersonProperties.withUsername("Amado")).getPassword();
 	}
 	
-	public String getMaleFirstName(){
-		
+	public String getMaleFirstName(){		
 		return fairy.person(PersonProperties.male()).getFirstName();
 	}
 	
@@ -108,8 +96,7 @@ public class Faker {
 		return day;
 	} 
 	
-	public String getRandomMessage() {
-		
+	public String getRandomMessage() {		
 		return fairy.textProducer().sentence();
 	}
 	

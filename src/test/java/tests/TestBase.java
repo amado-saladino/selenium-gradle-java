@@ -33,7 +33,7 @@ public class TestBase extends AbstractTestNGCucumberTests {
 	protected static WebDriver driver;
 	protected Faker faker = new Faker();
 	static PropertyReader propertyReader = new PropertyReader("Config\\env.properties");
-
+	protected PropertyReader settingsProperties = new PropertyReader("Config\\settings.properties");
 	private static String downloadPath = System.getProperty("user.dir") + "\\Downloads";
 
 	private static FirefoxOptions firefoxOption() {

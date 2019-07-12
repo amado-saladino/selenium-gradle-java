@@ -20,21 +20,18 @@ public class ContactUs extends TestBase {
 	}
 
 	@When("^User clicks 'contact us' link$")
-	public void user_clicks_contact_us_link() {
-	    
+	public void user_clicks_contact_us_link() {	    
 		homePage.openContactUsPage();
 	}
 
 	@When("^User fills in inquiry form$")
-	public void user_fills_in_inquiry_form() {
-	    
+	public void user_fills_in_inquiry_form() {	    
 		contactPage = new ContactUsPage(driver);
 		contactPage.ContactUs(faker.getFullName(), faker.getEmail(), faker.getRandomMessage());
 	}
 
 	@Then("^User should see inquiry sent successfully$")
-	public void user_should_see_inquiry_sent_successfully() {
-	    
+	public void user_should_see_inquiry_sent_successfully() {	    
 		Assert.assertTrue(contactPage.successMessage.getText()
 				 .contains("Your enquiry has been successfully sent to the store owner."));
 	}

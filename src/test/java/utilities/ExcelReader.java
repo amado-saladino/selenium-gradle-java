@@ -14,9 +14,7 @@ public class ExcelReader {
 	private static XSSFSheet sheet;
 
 	private static void setDataSource(String path) {
-
 		File excelFile = new File(path);
-
 		try {
 
 			FileInputStream inputStream = new FileInputStream(excelFile);
@@ -33,21 +31,15 @@ public class ExcelReader {
 
 	}
 
-	
 	private static void selectSheet(String sheetName) {
-
 		sheet = workBook.getSheet(sheetName);
 	}
-
 	
 	private static String readCell(int rowIndex, int colIndex) {
-
 		return sheet.getRow(rowIndex).getCell(colIndex).getStringCellValue();		
 	}
 
-	
 	public static Object[][] loadTestData(String file,String sheetName) {
-
 		setDataSource(file);
 		selectSheet(sheetName);
 		

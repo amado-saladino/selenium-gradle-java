@@ -2,6 +2,8 @@ allure-report/*
 allure-results/*
 Screenshots/*
 /.idea/
+/out/
+/bin/
 /.settings/
 /.gradle/
 /gradle/

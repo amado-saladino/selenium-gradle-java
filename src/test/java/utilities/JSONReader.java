@@ -19,20 +19,16 @@ import com.google.gson.JsonSyntaxException;
 
 
 public class JSONReader {
-
 	Gson gson;
 	
-	public JSONReader(){
-		
+	public JSONReader(){		
 		gson = new Gson();
 	}
-	
 	
 	public <T> T getJSonObject(String filePath,Type type) throws JsonSyntaxException, JsonIOException, FileNotFoundException {
 		
 		return gson.fromJson(new FileReader("data/" + filePath), type);
 	}
-	
 	
 	public String readFileAsString(String fileName)throws Exception
     {
@@ -46,9 +42,7 @@ public class JSONReader {
 		return new JSONObject(jsonContent).getJSONArray(key);
 	}
 	
-	
-	public Object[][] getTabularJson(String fileName,String key) {
-		
+	public Object[][] getTabularJson(String fileName,String key) {		
 		Object[][] testData = null;
 		
 		try {
@@ -74,7 +68,6 @@ public class JSONReader {
 		return testData;
 	}
 	
-	
 	public Object[] getJsonArrayFromFile(String fileName,String key) 
 	{
 		String contents="";
@@ -96,10 +89,8 @@ public class JSONReader {
 		
 		return options;
 	}
-	
 		
-	public static void main(String[] args) {
-		
+	public static void main(String[] args) {		
 		JSONReader reader = new JSONReader();
 		//This works if it has the returned json as array of objects
 		//i.e , starts with '['
