@@ -37,7 +37,6 @@ public class TestBase extends AbstractTestNGCucumberTests {
 	private static String downloadPath = System.getProperty("user.dir") + "\\Downloads";
 
 	private static FirefoxOptions firefoxOption() {
-
 		FirefoxOptions option = new FirefoxOptions();
 		option.addPreference("browser.download.folderList", 2);
 		option.addPreference("browser.download.dir", downloadPath);
@@ -48,7 +47,6 @@ public class TestBase extends AbstractTestNGCucumberTests {
 	}
 
 	private static ChromeOptions chromeOption() {
-
 		ChromeOptions options = new ChromeOptions();
 		HashMap<String, Object> chromePrefs = new HashMap<String, Object>();
 		chromePrefs.put("profile.default.content_settings.popups", 0);
@@ -130,7 +128,6 @@ public class TestBase extends AbstractTestNGCucumberTests {
 
 	@DataProvider(name = "ExcelDataProvider")
 	public Object[][] getDatainSheet(ITestNGMethod testMethod) {
-
 		return ExcelReader.loadTestData("data\\TestData.xlsx", testMethod.getMethodName());
 	}
 
