@@ -18,82 +18,61 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class PageBase {
 
-	protected WebDriver driver; 
-	protected JavascriptExecutor jse ;
-	public Actions action ;
+	protected WebDriver driver;
+	protected JavascriptExecutor jse;
+	public Actions action;
 
-	
-	public PageBase(WebDriver driver) 
-	{
+	public PageBase(WebDriver driver) {
 		PageFactory.initElements(driver, this);
 		this.driver = driver;
 		jse = (JavascriptExecutor) driver;
 		action = new Actions(driver);
 	}
-	
-	@FindBy(linkText="Computers")
+
+	@FindBy(linkText = "Computers")
 	WebElement ComputerMenu;
-	
-	@FindBy(linkText="Notebooks")
+
+	@FindBy(linkText = "Notebooks")
 	WebElement NotbooksMenu;
-	
-	@FindBy(id="customerCurrency")
+
+	@FindBy(id = "customerCurrency")
 	public WebElement currencydrl;
-	
-	
-	public WebElement getElement(By selector)
-	{
-		Wait<WebDriver> wait = 
-				new FluentWait<WebDriver>(driver)
-				.withTimeout(Duration.ofSeconds(10))
-				.pollingEvery(Duration.ofSeconds(2))
-				.ignoring(NoSuchElementException.class);
-		
-		return wait.until(
-				webdriver-> {
-					return webdriver.findElement(selector);
-				}
-				);
-		
+
+	public WebElement getElement(By selector) {
+		Wait<WebDriver> wait = new FluentWait<WebDriver>(driver).withTimeout(Duration.ofSeconds(10))
+				.pollingEvery(Duration.ofSeconds(2)).ignoring(NoSuchElementException.class);
+
+		return wait.until(webdriver -> {
+			return webdriver.findElement(selector);
+		});
 	}
-	
-	
+
 	void waitForElement(WebElement element) {
-		WebDriverWait wait = new WebDriverWait(driver, 10) ; 
+		WebDriverWait wait = new WebDriverWait(driver, 10);
 		wait.until(ExpectedConditions.elementToBeClickable(element));
 	}
-	
-	
-	protected void clickButton(WebElement button) 
-	{
+
+	protected void clickButton(WebElement button) {
 		button.click();
 	}
-	
-	protected void setTextElementText(WebElement textElement , String value) 
-	{
+
+	protected void setTextElementText(WebElement textElement, String value) {
 		textElement.sendKeys(value);
 	}
-	
-	
-	protected void selectComboItemByText(WebElement comboElement, String textValue){		
-		new Select(comboElement).selectByVisibleText(textValue);		
+
+	protected void selectComboItemByText(WebElement comboElement, String textValue) {
+		new Select(comboElement).selectByVisibleText(textValue);
 	}
-	
-	
-	public WebElement getComboSelectedItem(WebElement comboBox) {		
+
+	public WebElement getComboSelectedItem(WebElement comboBox) {
 		return new Select(comboBox).getFirstSelectedOption();
 	}
-	
-	
-	protected void scrollToBottom()	
-	{
+
+	protected void scrollToBottom() {
 		jse.executeScript("scrollTo(0, document.body.scrollHeight)");
 	}
-	
-	public void clearText(WebElement element) 
-	{
+
+	public void clearText(WebElement element) {
 		element.clear();
 	}
-	
-
 }
